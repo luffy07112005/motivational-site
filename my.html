@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>I Can Do Much Greater Things</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-light: linear-gradient(to right, #ffecd2, #fcb69f);
+      --bg-dark: linear-gradient(to right, #1f1f1f, #3a3a3a);
+      --text-light: #333;
+      --text-dark: #fff;
+      --btn-bg-light: #fff;
+      --btn-bg-dark: #444;
+      --btn-text-light: #ff7e5f;
+      --btn-text-dark: #fcb69f;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transition: all 0.4s ease;
+      background: var(--bg-light);
+      color: var(--text-light);
+    }
+
+    body.dark {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-family: 'Pacifico', cursive;
+      margin: 20px 0;
+      animation: float 4s ease-in-out infinite;
+      text-shadow: 2px 2px 12px rgba(0,0,0,0.2);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .gif {
+      width: 250px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      animation: bounce 2s infinite;
+      margin-bottom: 25px;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .btn, .toggle-btn {
+      padding: 14px 28px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 10px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .btn {
+      background: var(--btn-bg-light);
+      color: var(--btn-text-light);
+    }
+
+    body.dark .btn {
+      background: var(--btn-bg-dark);
+      color: var(--btn-text-dark);
+    }
+
+    .btn:hover, .toggle-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .toggle-btn {
+      background: transparent;
+      color: inherit;
+      border: 2px solid currentColor;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 15px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <img class="gif" src="https://media.giphy.com/media/Nx0rz3jtxtEre/giphy.gif" alt="Motivational Gif" />
+  <h1>I CAN DO MUCH GREATER THINGS</h1>
+  <button class="btn" onclick="celebrate()">Believe It!</button>
+  <button class="toggle-btn" onclick="toggleTheme()">🌗 Toggle Theme</button>
+
+  
+
+  <!-- Confetti Script -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    function celebrate() {
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+      alert('YES YOU CAN! 🚀');
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+</body>
+</html>
